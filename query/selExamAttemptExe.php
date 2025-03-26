@@ -6,17 +6,9 @@ $exmneId = $_SESSION['examineeSession']['exmne_id'];
 
 extract($_POST);
 
- $selExamAttmpt = $conn->query("SELECT * FROM exam_attempt WHERE exmne_id='$exmneId' AND exam_id='$thisId' ");
+// Modified to allow retaking exams
+// For now, we won't check if the exam has been taken before
+$res = array("res" => "takeNow");
 
- if($selExamAttmpt->rowCount() > 0)
- {
- 	$res = array("res" => "alreadyExam", "msg" => $thisId);
- }
- else
- {
- 	$res = array("res" => "takeNow");
- }
-
-
- echo json_encode($res);
+echo json_encode($res);
  ?>

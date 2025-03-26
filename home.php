@@ -17,8 +17,6 @@ if(!isset($_SESSION['examineeSession']['examineenakalogin']) == true) header("lo
 <?php include("includes/sidebar.php"); ?>
 
 
-
-<!-- Condition If unza nga page gi click -->
 <?php 
    @$page = $_GET['page'];
 

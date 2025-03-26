@@ -231,3 +231,21 @@ if(!isset($_SESSION['admin']['adminnakalogin']) == true) header("location:index.
 <?php include("includes/footer.php"); ?>
 
 <?php include("includes/modals.php"); ?>
+
+<script>
+// Add a function to refresh the question list
+function refreshDiv() {
+    $('#refreshData').load(location.href + ' #refreshData');
+}
+
+// Make sure modal is properly hidden when closed
+$(document).ready(function() {
+    $('#modalForAddQuestion').on('hidden.bs.modal', function () {
+        $(this).find('form')[0].reset();
+    });
+});
+</script>
+
+</div>
+</body>
+</html>

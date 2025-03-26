@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>CEE LOGIN</title>
+	<title>LOGIN</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="login-ui/image/png" href="images/icons/favicon.ico"/>
@@ -59,6 +59,11 @@
 	<script src="login-ui/vendor/daterangepicker/daterangepicker.js"></script>
 	<script src="login-ui/vendor/countdowntime/countdowntime.js"></script>
 	<script src="login-ui/js/main.js"></script>
+	
+	<!-- Add missing scripts with corrected paths -->
+	<script src="../js/jquery.js"></script>
+	<script src="../js/ajax.js"></script>
+	<script src="../js/sweetalert.js"></script>
 
 </body>
 </html>

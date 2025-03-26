@@ -1,4 +1,3 @@
-
 <?php 
   include("../../../conn.php");
   $id = $_GET['id'];
@@ -41,6 +40,14 @@
         <input type="" name="exam_final" value="<?php echo $selCourse['exam_answer']; ?>" class="form-control" required>
       </div>
 
+      <div class="form-group">
+        <legend class="text-success">Difficulty Level</legend>
+        <select name="difficulty" class="form-control" required>
+          <option value="easy" <?php echo ($selCourse['exam_difficulty'] == 'easy') ? 'selected' : ''; ?>>Easy</option>
+          <option value="medium" <?php echo ($selCourse['exam_difficulty'] == 'medium') ? 'selected' : ''; ?>>Medium</option>
+          <option value="hard" <?php echo ($selCourse['exam_difficulty'] == 'hard') ? 'selected' : ''; ?>>Hard</option>
+        </select>
+      </div>
 
       <div class="form-group" align="right">
         <button type="submit" class="btn btn-sm btn-primary">Update Now</button>

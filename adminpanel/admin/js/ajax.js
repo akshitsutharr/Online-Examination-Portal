@@ -262,8 +262,15 @@ $(document).on("click", "#deleteQuestion", function(e){
 
 
 // Add Question 
-$(document).on("submit","#addQuestionFrm" , function(){
-  $.post("query/addQuestionExe.php", $(this).serialize() , function(data){
+$(document).on("submit","#addQuestionFrm" , function(e){
+  e.preventDefault(); // Prevent default form submission
+  
+  console.log("Form submitted");
+  console.log("Form data:", $(this).serialize());
+  
+  $.post("query/addQuestionExe.php", $(this).serialize(), function(data){
+    console.log("Response:", data);
+    
     if(data.res == "exist")
     {
       Swal.fire(
@@ -279,11 +286,29 @@ $(document).on("submit","#addQuestionFrm" , function(){
          data.msg + ' question <br>Successfully added',
         'success'
       )
-        $('#addQuestionFrm')[0].reset();
-        refreshDiv();
+      $('#addQuestionFrm')[0].reset();
+      $('#modalForAddQuestion').modal('hide');
+      refreshDiv();
     }
-   
+    else {
+      Swal.fire(
+        'Error',
+        'Failed to add question. Please try again.',
+        'error'
+      )
+    }
   },'json')
+  .fail(function(xhr, status, error) {
+    console.error("AJAX Error:", status, error);
+    console.log("Response Text:", xhr.responseText);
+    
+    Swal.fire(
+      'Server Error',
+      'There was a problem communicating with the server.',
+      'error'
+    )
+  });
+  
   return false;
 });
 
